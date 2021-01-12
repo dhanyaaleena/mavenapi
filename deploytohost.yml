@@ -1,0 +1,36 @@
+hosts: ansible_client
+become: yes
+become_method: sudo
+remote_user: dhanya
+
+tasks:
+  - name: enable UFW
+    ufw:
+      state: enabled
+  - name: Allow port 8080
+    ufw:
+      rule: allow
+      port: 8080
+      proto: tcp
+  - name: Allow port 22
+    ufw:
+      rule: allow
+      port: 22
+      proto: tcp
+  - name: Update Sources List
+    commad: apt-get update
+    
+  - name: Install Jdk
+    apt:
+      name: openjdk-11-jdk
+      state: present
+      
+  - name: add tomcat group
+    group:
+      name: tomcat
+      
+  - name: add tomcat user
+    user:
+      name: tomcat
+      group: tomcat
+      
