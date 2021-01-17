@@ -92,3 +92,10 @@ stage ('Deployment Stage') {
       src: /home/dhanya/hostconfigfiles/hmacontext.txt
       dest: /opt/tomcat/webapps/host-manager/META-INF/context.xml
       follow: yes
+      
+      
+- name: Copy Tomcat service from local to remote
+      copy:
+        src: tomcat.service
+        dest: /etc/systemd/system/
+        mode: 0755
