@@ -12,7 +12,7 @@
         follow: yes
 
     - name: Adding context path or app name
-      commad: mv /opt/tomcat/webapps/course-api-0.0.1-SNAPSHOT.jar /opt/tomcat/webapps/course-api.jar
+      command: mv /opt/tomcat/webapps/course-api-0.0.1-SNAPSHOT.jar /opt/tomcat/webapps/course-api.jar
              
     - name: create course-api directory
       file: 
