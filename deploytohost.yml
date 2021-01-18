@@ -5,7 +5,6 @@
 
    tasks:
   
-    
     - name: Deploying app to Tomcat at http://<server-ip>:8080/
       copy: 
         src: /var/lib/jenkins/workspace/CICDwithAnsible/target/course-api-0.0.1-SNAPSHOT.jar
@@ -13,11 +12,9 @@
         follow: yes
 
     - name: Adding context path or app name
-      copy: 
-        commad: mv /opt/tomcat/webapps/course-api-0.0.1-SNAPSHOT.jar /opt/tomcat/webapps/course-api.jar
-        follow: yes
-       
-    - name: create emsapp directory
+      commad: mv /opt/tomcat/webapps/course-api-0.0.1-SNAPSHOT.jar /opt/tomcat/webapps/course-api.jar
+             
+    - name: create course-api directory
       file: 
         path: /opt/tomcat/webapps/course-api
         state: directory
