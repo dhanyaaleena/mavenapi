@@ -2,7 +2,6 @@
    become: yes
    become_method: sudo
    remote_user: dhanya
-   become_pass: 19942004
 
    tasks:
   
