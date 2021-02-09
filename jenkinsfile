@@ -18,14 +18,9 @@ pipeline{
 		}
 		stage ('QA with SonarQube') {
 			steps {
-				withSonarQubeEnv('sonar-8'){
+				withSonarQubeEnv('sonar-7.5'){
 					sh 'mvn clean package sonar:sonar'
 				}
-			}
-		}
-		stage ('Deployment Stage') {
-			steps {
-				sh 'ansible-playbook deploytohost.yml'
 			}
 		}
 	}
